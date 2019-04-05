@@ -2,47 +2,59 @@ object gimenez {
 
 	// la linea que sigue es equivalente a todo lo que está debajo.
 	// le agrega al objeto: un atributo, el método para acceder, y el método para modificar.
-//	var property sueldo = 15000
-	var sueldo = 15000
-	var dinero = 0
-	var deuda = 0
+	var property sueldo = 15000
+	/*var sueldo = 15000
+	 * method sueldo() {
+	 * 	return sueldo
+	 * }
 
-	method sueldo() {
-		return sueldo
-	}
+	 * method sueldo(nuevoValor) {
+	 * 	sueldo = nuevoValor
+	 }*/
+	var balance = 0
 
-	method sueldo(nuevoValor) {
-		sueldo = nuevoValor
-	}
+	method totalDinero() = balance.max(0)
+
+	method totalDeuda() = -balance.min(0)
 
 	method cobrarSueldo() {
-		dinero += self.sueldo()
-		if (dinero > deuda) {
-			dinero -= deuda
-			deuda = 0
-		} else {
-			deuda -= dinero
-			dinero = 0
-		}
+		balance += self.sueldo()
 	}
 
 	method gastar(cuanto) {
-		if (cuanto > dinero) {
-			deuda += (cuanto - dinero)
-			dinero = 0
-		} else {
-			dinero -= cuanto
-		}
+		balance -= cuanto
 	}
 
-	method totalDeuda() {
-		return deuda
-	}
+/*var dinero = 0
+ * var deuda = 0
 
-	method totalDinero() {
-		return dinero
-	}
+ * 
+ * method cobrarSueldo() {
+ * 	dinero += self.sueldo()
+ * 	if (dinero >= deuda) {
+ * 		dinero -= deuda
+ * 		deuda = 0
+ * 	} else {
+ * 		deuda -= dinero
+ * 		dinero = 0
+ * 	}
+ * }
 
+ * method gastar(cuanto) {
+ * 	if (cuanto > dinero) {
+ * 		deuda += (cuanto - dinero)
+ * 		dinero = 0
+ * 	} else {
+ * 		dinero -= cuanto
+ * 	}
+ *  }
+ * method totalDeuda() {
+ * 	return deuda
+ * }
+
+ * method totalDinero() {
+ * 	return dinero
+ }*/
 }
 
 object baigorria {
